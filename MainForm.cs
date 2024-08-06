@@ -210,8 +210,8 @@ namespace MiniWeread
             LoadWindowPositionAndSize();
             readForm = new ReadForm(this);
             this.checkBox1.Checked = Properties.Settings.Default.AutoSave;
+            this.Text = this.Text + "V" + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-            
 
         }
 

@@ -40,6 +40,7 @@ namespace MiniWeread
             this.button2 = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.主界面ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn = new System.Windows.Forms.Button();
@@ -54,7 +55,7 @@ namespace MiniWeread
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.主界面ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericY)).BeginInit();
@@ -62,6 +63,7 @@ namespace MiniWeread
             ((System.ComponentModel.ISupportInitialize)(this.numericHeight)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -167,19 +169,26 @@ namespace MiniWeread
             this.关于ToolStripMenuItem,
             this.退出ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 70);
+            // 
+            // 主界面ToolStripMenuItem
+            // 
+            this.主界面ToolStripMenuItem.Name = "主界面ToolStripMenuItem";
+            this.主界面ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.主界面ToolStripMenuItem.Text = "主界面";
+            this.主界面ToolStripMenuItem.Click += new System.EventHandler(this.main_ToolStripMenuItem_Click);
             // 
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.关于ToolStripMenuItem.Text = "阅读小窗";
             this.关于ToolStripMenuItem.Click += new System.EventHandler(this.readToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -271,6 +280,7 @@ namespace MiniWeread
             // 
             // button4
             // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Location = new System.Drawing.Point(748, 549);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
@@ -282,7 +292,7 @@ namespace MiniWeread
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(734, 222);
+            this.checkBox1.Location = new System.Drawing.Point(7, 61);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(72, 16);
             this.checkBox1.TabIndex = 18;
@@ -294,7 +304,7 @@ namespace MiniWeread
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(735, 173);
+            this.label6.Location = new System.Drawing.Point(8, 12);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 12);
             this.label6.TabIndex = 19;
@@ -303,28 +313,29 @@ namespace MiniWeread
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(735, 198);
+            this.label7.Location = new System.Drawing.Point(8, 37);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(41, 12);
             this.label7.TabIndex = 20;
             this.label7.Text = "未获取";
-            
             // 
-            // 主界面ToolStripMenuItem
+            // panel2
             // 
-            this.主界面ToolStripMenuItem.Name = "主界面ToolStripMenuItem";
-            this.主界面ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.主界面ToolStripMenuItem.Text = "主界面";
-            this.主界面ToolStripMenuItem.Click += new System.EventHandler(this.main_ToolStripMenuItem_Click);
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Location = new System.Drawing.Point(734, 172);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(273, 100);
+            this.panel2.TabIndex = 21;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1007, 584);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn);
@@ -343,8 +354,9 @@ namespace MiniWeread
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -373,6 +385,7 @@ namespace MiniWeread
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ToolStripMenuItem 主界面ToolStripMenuItem;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 
