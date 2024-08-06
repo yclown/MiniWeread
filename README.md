@@ -46,6 +46,6 @@
 当页面内容有误时，请按L键重新读取。
 
 ## 页面截图
-![image](Preview\mian.png)
+![image](Preview/mian.png)
 
 
