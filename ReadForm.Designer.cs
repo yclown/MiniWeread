@@ -58,7 +58,7 @@ namespace MiniWeread
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "ReadForm";
-            this.Text = "Read";
+            this.Text = "阅读";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReadForm_FormClosing);
             this.Load += new System.EventHandler(this.Read_Load);
             this.ResizeEnd += new System.EventHandler(this.ReadForm_ResizeEnd);

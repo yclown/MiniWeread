@@ -54,6 +54,7 @@ namespace MiniWeread
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.主界面ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericY)).BeginInit();
@@ -162,22 +163,23 @@ namespace MiniWeread
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.主界面ToolStripMenuItem,
             this.关于ToolStripMenuItem,
             this.退出ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
             // 
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.关于ToolStripMenuItem.Text = "阅读";
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.关于ToolStripMenuItem.Text = "阅读小窗";
             this.关于ToolStripMenuItem.Click += new System.EventHandler(this.readToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -306,7 +308,14 @@ namespace MiniWeread
             this.label7.Size = new System.Drawing.Size(41, 12);
             this.label7.TabIndex = 20;
             this.label7.Text = "未获取";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            
+            // 
+            // 主界面ToolStripMenuItem
+            // 
+            this.主界面ToolStripMenuItem.Name = "主界面ToolStripMenuItem";
+            this.主界面ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.主界面ToolStripMenuItem.Text = "主界面";
+            this.主界面ToolStripMenuItem.Click += new System.EventHandler(this.main_ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -320,6 +329,7 @@ namespace MiniWeread
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn);
             this.Controls.Add(this.webView21);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "微信阅读摸鱼助手";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -362,6 +372,7 @@ namespace MiniWeread
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ToolStripMenuItem 主界面ToolStripMenuItem;
     }
 }
 

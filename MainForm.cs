@@ -363,16 +363,13 @@ namespace MiniWeread
                  
             }
         }
+ 
+ 
 
-        public void SetBookID()
+        private void main_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
+            this.Show();
+            this.Activate();
         }
     }
 }
