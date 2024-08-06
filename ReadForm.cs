@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,6 +40,7 @@ namespace MiniWeread
            
             SetStyle();
             this.Disposed += ReadDisposed;
+           
         }
 
 
@@ -350,6 +352,7 @@ namespace MiniWeread
                         //改变panel的背景色
                         this.label1.ForeColor = colorChoosed;
                         Properties.Settings.Default.FontColor = colorChoosed;
+                        Properties.Settings.Default.Save();
                     } 
                     break;
                 case Keys.B: //背景色
@@ -360,6 +363,7 @@ namespace MiniWeread
                         Color colorChoosed = colorDia2.Color; 
                         this.BackColor = colorChoosed;
                         Properties.Settings.Default.BackColor = colorChoosed;
+                        Properties.Settings.Default.Save();
                     }
                     break;
                 case Keys.Q: //更改字体大小
@@ -378,6 +382,7 @@ namespace MiniWeread
                     {
                         charactersPerPage -= 1;
                         Properties.Settings.Default.PageCount = charactersPerPage;
+                        Properties.Settings.Default.Save();
                         currentPage = 0;
                         UpdateLabelText();
                     } 
@@ -386,10 +391,11 @@ namespace MiniWeread
                     charactersPerPage += 1;
                     currentPage = 0;
                     Properties.Settings.Default.PageCount = charactersPerPage;
+                    Properties.Settings.Default.Save();
                     UpdateLabelText();
                     break;
                 case Keys.Space: //自动翻页
-
+                    this.timer1.Enabled = !this.timer1.Enabled;
 
                     break;
                 case Keys.O: //透明度-
@@ -397,6 +403,7 @@ namespace MiniWeread
                     {
                         this.Opacity -= 0.05;
                         Properties.Settings.Default.ReadOpacity = this.Opacity;
+                        Properties.Settings.Default.Save();
                     }
                    
                     break;
@@ -405,9 +412,29 @@ namespace MiniWeread
                     {
                         this.Opacity += 0.05;
                         Properties.Settings.Default.ReadOpacity = this.Opacity;
+                        Properties.Settings.Default.Save();
                     }
                      
 
+                    break;
+                case Keys.J:
+                    string str = Interaction.InputBox("请输入翻页间隔（单位毫秒）", "翻页事件", Properties.Settings.Default.NextTime.ToString());
+                    int result = 0;
+                    if (int.TryParse(str, out result))
+                    {
+                        if (result < 500)
+                        {
+                            MessageBox.Show("翻页间隔不能小于500毫秒");
+                            Properties.Settings.Default.NextTime = 500;
+                            Properties.Settings.Default.Save();
+                        }
+                        else
+                        {
+                            Properties.Settings.Default.NextTime = result;
+                            Properties.Settings.Default.Save();
+                        }
+
+                    }
                     break;
             }
         }
@@ -417,7 +444,10 @@ namespace MiniWeread
             //SaveWindowPositionAndSize();
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            NextPage();
+        }
 
-         
     }
 }

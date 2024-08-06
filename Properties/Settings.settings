@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Weread.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MiniWeread.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="ReadFormSize" Type="System.Drawing.Size" Scope="User">
@@ -21,10 +21,10 @@
       <Value Profile="(Default)">0, 0</Value>
     </Setting>
     <Setting Name="FontColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">White</Value>
+      <Value Profile="(Default)">Black</Value>
     </Setting>
     <Setting Name="BackColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Black</Value>
+      <Value Profile="(Default)">White</Value>
     </Setting>
     <Setting Name="PageCount" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">20</Value>
@@ -37,6 +37,12 @@
     </Setting>
     <Setting Name="ReadOpacity" Type="System.Double" Scope="User">
       <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="NextTime" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5000</Value>
+    </Setting>
+    <Setting Name="AutoSave" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

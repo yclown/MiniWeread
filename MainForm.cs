@@ -11,19 +11,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Spire.OCR;
 using System.Threading;
+using System.Text.RegularExpressions;
 
 namespace MiniWeread
 {
     public partial class MainForm : Form
     {
-
+        public string NowBookName;
         public Action<string> TaskCompletedCallback;
 
         public ReadForm readForm;
         public MainForm()
         {
             InitializeComponent();
-            
+            NowBookName = "";
         }
 
         #region 窗口
@@ -103,7 +104,8 @@ namespace MiniWeread
         private string FormatText(string text)
         {
             text = text.Replace("Evaluation Warning : The version can be used only for evaluation purpose..."
-                        , "");
+                        , "")
+                        .Replace("\n" , "");
 
             TaskCompletedCallback?.Invoke(text);
             return text;
@@ -132,14 +134,15 @@ namespace MiniWeread
                 //保存到txt
                 if (this.checkBox1.Checked)
                 {
-                    if (this.webView21.Source.Segments.Length > 1)
+                    if (!string.IsNullOrEmpty(NowBookName))
                     {
-                        var s = this.webView21.Source.Segments.Last() + ".txt";
+                        Directory.CreateDirectory("saves");
+                        var s = Path.Combine("saves", NowBookName + ".txt"); 
                         File.AppendAllText(s, text);
                     }
-                    
+
                 }
-               
+
                 return text;
                 //File.WriteAllText("output.txt", text);
             }
@@ -206,6 +209,10 @@ namespace MiniWeread
             LoadScreenshotParams();
             LoadWindowPositionAndSize();
             readForm = new ReadForm(this);
+            this.checkBox1.Checked = Properties.Settings.Default.AutoSave;
+
+            
+
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -281,6 +288,7 @@ namespace MiniWeread
 
 
             Properties.Settings.Default.ShotSize = new Size((int)this.numericWidth.Value, (int)this.numericHeight.Value);
+            Properties.Settings.Default.Save();
         }
 
      
@@ -321,6 +329,50 @@ namespace MiniWeread
         private void button4_Click(object sender, EventArgs e)
         {
             this.webView21.Source =new Uri( "https://weread.qq.com/");
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.AutoSave = this.checkBox1.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private async  void webView21_NavigationCompletedAsync(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)
+        {
+            if (e.IsSuccess)
+            {
+                string htmlContent = await webView21.
+                    CoreWebView2.ExecuteScriptAsync(@"JSON.parse(document.querySelectorAll('script[type=""application/ld+json""]')[0].text)");
+
+                if (htmlContent != "null") {
+                    var text = Regex.Unescape(htmlContent);
+                    try
+                    {
+                        var info = JObject.Parse(text);
+                        NowBookName = info["name"] + " " + info["author"]["name"];
+                        this.label7.Text = NowBookName;
+                    }
+                    catch 
+                    {
+                        NowBookName = "";
+                    }
+                  
+
+                }
+                
+                 
+            }
+        }
+
+        public void SetBookID()
+        {
+
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
