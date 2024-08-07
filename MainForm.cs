@@ -77,8 +77,10 @@ namespace MiniWeread
                     return;
                 }
             }
+            
             base.WndProc(ref m);
         }
+        
 
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
