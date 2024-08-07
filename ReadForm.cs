@@ -32,7 +32,7 @@ namespace MiniWeread
                 this.fullText = res.Replace("\n","");
                 
             };
-            InitHotkey();
+           
 
             this.label1.MouseDown += new MouseEventHandler(this.Label_MouseDown);
             this.label1.MouseMove += new MouseEventHandler(this.Label_MouseMove);
@@ -64,9 +64,9 @@ namespace MiniWeread
 
         private void Read_Load(object sender, EventArgs e)
         {
-            //this.mainForm.ReRead();
-
+            //this.mainForm.ReRead(); 
             this.ShowInTaskbar = false;
+            InitHotkey();
         }
 
         #region 窗口事件
@@ -213,7 +213,7 @@ namespace MiniWeread
             //Hotkey.RegisterHotKey(this.Handle, (int)HotKeyEvent.ReRead, Hotkey.KeyModifiers.Alt, Keys.X);
             //Hotkey.RegisterHotKey(this.Handle, (int)HotKeyEvent.PrevPage, Hotkey.KeyModifiers.Alt, Keys.R);
             //Hotkey.RegisterHotKey(this.Handle, (int)HotKeyEvent.NextPage, Hotkey.KeyModifiers.Alt, Keys.C);
-            //Hotkey.RegisterHotKey(this.Handle, (int)HotKeyEvent.ToggleHide, Hotkey.KeyModifiers.Alt, Keys.S);
+            Hotkey.RegisterHotKey(this.Handle, (int)HotKeyEvent.ToggleHide, Hotkey.KeyModifiers.Alt, Keys.S);
             //Hotkey.RegisterHotKey(this.Handle, (int)HotKeyEvent.ToggleOnTop, Hotkey.KeyModifiers.Ctrl, Keys.T);
             //Hotkey.RegisterHotKey(this.Handle, (int)HotKeyEvent.ToggleBar, Hotkey.KeyModifiers.Alt, Keys.B);
         
