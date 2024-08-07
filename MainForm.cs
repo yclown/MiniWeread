@@ -266,6 +266,9 @@ namespace MiniWeread
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.XYOffset = new Point((int)this.numericX.Value, (int)this.numericY.Value);
+            Properties.Settings.Default.ShotSize = new Size((int)this.numericWidth.Value, (int)this.numericHeight.Value);
+            Properties.Settings.Default.Save();
             SaveWindowPositionAndSize();
             this.Dispose();
             this.Close(); 
@@ -284,11 +287,7 @@ namespace MiniWeread
 
         private void numeric_ValueChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.XYOffset=new Point((int)this.numericX.Value,(int)this.numericY.Value) ;
-
-
-            Properties.Settings.Default.ShotSize = new Size((int)this.numericWidth.Value, (int)this.numericHeight.Value);
-            Properties.Settings.Default.Save();
+          
         }
 
      
