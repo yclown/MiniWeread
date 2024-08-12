@@ -130,7 +130,7 @@ namespace MiniWeread
         private async void ReRead()
         {
             await this.mainForm.ReRead();
-
+            currentPage = 0;
             UpdateLabelText();
         }
         private async void PrevPage()
