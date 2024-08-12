@@ -188,21 +188,29 @@ namespace MiniWeread
 
         private async Task<string> GetScreenshotBase64Async()
         {
-            string r3 = await webView21.CoreWebView2.
-               CallDevToolsProtocolMethodAsync("Page.captureScreenshot",
-               GetCaptureScreenshotParameters().ToString());
-            JObject o3 = JObject.Parse(r3);
-            JToken data = o3["data"];
-            string data_str = data.ToString();
-            
+            //string r3 = await webView21.CoreWebView2.
+            //   CallDevToolsProtocolMethodAsync("Page.captureScreenshot",
+            //   GetCaptureScreenshotParameters().ToString());
+            //JObject o3 = JObject.Parse(r3);
+            //JToken data = o3["data"];
+            //string data_str = data.ToString();
+
+            string htmlContent = await webView21.
+                       CoreWebView2
+                       .ExecuteScriptAsync(@"document.getElementsByTagName('canvas')[0].toDataURL()");
+            string data_str = htmlContent.Replace("\"", "").Replace("data:image/png;base64,", "");
+
             return data_str;
         }
         private async void button2_Click(object sender, EventArgs e)
         {
             string data_str = await GetScreenshotBase64Async();
             //byte[] imageBytes = Convert.FromBase64String(data_str);
-            Image image = Base64ToImage(data_str);
-            image.Save("screenshot.png");
+            if (data_str != "null") {
+                Image image = Base64ToImage(data_str);
+                image.Save("screenshot.png");
+            }
+            
              
         }
 
@@ -379,5 +387,7 @@ namespace MiniWeread
         {
             this.Opacity = 0;
         }
+         
+       
     }
 }

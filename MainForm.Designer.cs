@@ -68,7 +68,7 @@ namespace MiniWeread
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(47, 110);
+            this.button1.Location = new System.Drawing.Point(732, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -250,14 +250,14 @@ namespace MiniWeread
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.numericWidth);
             this.panel1.Controls.Add(this.numericHeight);
-            this.panel1.Location = new System.Drawing.Point(734, 0);
+            this.panel1.Location = new System.Drawing.Point(734, 375);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(273, 152);
             this.panel1.TabIndex = 16;
+            this.panel1.Visible = false;
             // 
             // button3
             // 
@@ -325,7 +325,7 @@ namespace MiniWeread
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.checkBox1);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(734, 172);
+            this.panel2.Location = new System.Drawing.Point(734, 41);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(273, 100);
             this.panel2.TabIndex = 21;
@@ -340,6 +340,7 @@ namespace MiniWeread
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn);
             this.Controls.Add(this.webView21);
+            this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "微信阅读摸鱼助手";
