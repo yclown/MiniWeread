@@ -71,6 +71,9 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PaddleOCRSharp, Version=4.3.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>packages\PaddleOCRSharp.4.3.0\lib\net48\PaddleOCRSharp.dll</HintPath>
+    </Reference>
     <Reference Include="SkiaSharp, Version=1.68.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>packages\SkiaSharp.1.68.0\lib\net45\SkiaSharp.dll</HintPath>
     </Reference>
@@ -179,26 +182,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
-    <Content Include="libiomp5md.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="mkldnn.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="mklml.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="opencv_world346.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Preview\main.png" />
     <Content Include="Preview\read.png" />
-    <Content Include="spire_ocrlib.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="spire_ocrsystem.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Microsoft.Web.WebView2.1.0.2592.51\build\Microsoft.Web.WebView2.targets" Condition="Exists('packages\Microsoft.Web.WebView2.1.0.2592.51\build\Microsoft.Web.WebView2.targets')" />
@@ -208,6 +193,10 @@
     </PropertyGroup>
     <Error Condition="!Exists('packages\Microsoft.Web.WebView2.1.0.2592.51\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Web.WebView2.1.0.2592.51\build\Microsoft.Web.WebView2.targets'))" />
     <Error Condition="!Exists('packages\SkiaSharp.1.68.0\build\net45\SkiaSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SkiaSharp.1.68.0\build\net45\SkiaSharp.targets'))" />
+    <Error Condition="!Exists('packages\PaddleOCRSharp.4.3.0\build\PaddleOCRSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\PaddleOCRSharp.4.3.0\build\PaddleOCRSharp.targets'))" />
+    <Error Condition="!Exists('packages\Paddle.Runtime.win_x64.2.6.1\build\Paddle.Runtime.win_x64.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Paddle.Runtime.win_x64.2.6.1\build\Paddle.Runtime.win_x64.targets'))" />
   </Target>
   <Import Project="packages\SkiaSharp.1.68.0\build\net45\SkiaSharp.targets" Condition="Exists('packages\SkiaSharp.1.68.0\build\net45\SkiaSharp.targets')" />
+  <Import Project="packages\PaddleOCRSharp.4.3.0\build\PaddleOCRSharp.targets" Condition="Exists('packages\PaddleOCRSharp.4.3.0\build\PaddleOCRSharp.targets')" />
+  <Import Project="packages\Paddle.Runtime.win_x64.2.6.1\build\Paddle.Runtime.win_x64.targets" Condition="Exists('packages\Paddle.Runtime.win_x64.2.6.1\build\Paddle.Runtime.win_x64.targets')" />
 </Project>

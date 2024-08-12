@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Spire.OCR;
 using System.Threading;
 using System.Text.RegularExpressions;
+using PaddleOCRSharp;
 
 namespace MiniWeread
 {
@@ -91,15 +92,24 @@ namespace MiniWeread
         {
 
             string data_str = await GetScreenshotBase64Async();
-            byte[] imageBytes = Convert.FromBase64String(data_str);
-            using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
+
+            OCRModelConfig config = null;
+            OCRParameter oCRParameter = null;
+            OCRResult ocrResult = new OCRResult();
+            PaddleOCREngine engine = new PaddleOCREngine(config, oCRParameter);
+         
+            ocrResult = engine.DetectTextBase64(data_str);
+            if (ocrResult != null)
             {
-                OcrScanner scanner = new OcrScanner();
-                scanner.Scan(ms, OCRImageFormat.Png);
-                string text = FormatText( scanner.Text.ToString());
-                MessageBox.Show(text, "当前文本");
-                //File.WriteAllText("output.txt", text);
+                MessageBox.Show(ocrResult.Text, "识别结果");
             }
+
+            //byte[] imageBytes = Convert.FromBase64String(data_str);
+            //using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
+            //{
+                
+              
+            //}
              
         }
 
