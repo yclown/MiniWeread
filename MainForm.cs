@@ -235,8 +235,9 @@ namespace MiniWeread
 
         private void read_Click(object sender, EventArgs e)
         {
-            
-            this.Hide();
+            this.Opacity = 0;
+            this.TopMost = true;
+            //this.Hide();
             notifyIcon1.Visible = true;
             readForm.Show();
             readForm.LoadWindowPositionAndSize();
@@ -369,8 +370,14 @@ namespace MiniWeread
 
         private void main_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Show();
+            this.Opacity = 1;
+            this.TopMost = false;
             this.Activate();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Opacity = 0;
         }
     }
 }
