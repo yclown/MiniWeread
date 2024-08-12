@@ -137,28 +137,46 @@ namespace MiniWeread
         { 
             string data_str = await GetScreenshotBase64Async();
           
-            byte[] imageBytes = Convert.FromBase64String(data_str);
-            using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
-            {
-                OcrScanner scanner = new OcrScanner();
-                scanner.Scan(ms, OCRImageFormat.Png);
-                string text = FormatText(scanner.Text.ToString());
-                //保存到txt
-                if (this.checkBox1.Checked)
-                {
-                    if (!string.IsNullOrEmpty(NowBookName))
-                    {
-                        Directory.CreateDirectory("saves");
-                        var s = Path.Combine("saves", NowBookName + ".txt"); 
-                        File.AppendAllText(s, text);
-                    }
+            //byte[] imageBytes = Convert.FromBase64String(data_str);
+            //using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
+            //{
+            //    OcrScanner scanner = new OcrScanner();
+            //    scanner.Scan(ms, OCRImageFormat.Png);
+            //    string text = FormatText(scanner.Text.ToString());
+            //    //保存到txt
+            //    if (this.checkBox1.Checked)
+            //    {
+            //        if (!string.IsNullOrEmpty(NowBookName))
+            //        {
+            //            Directory.CreateDirectory("saves");
+            //            var s = Path.Combine("saves", NowBookName + ".txt"); 
+            //            File.AppendAllText(s, text);
+            //        }
 
+            //    }
+
+            //    return text; 
+            //}
+
+            OCRModelConfig config = null;
+            OCRParameter oCRParameter = null;
+            OCRResult ocrResult = new OCRResult();
+            PaddleOCREngine engine = new PaddleOCREngine(config, oCRParameter);
+            ocrResult = engine.DetectTextBase64(data_str);
+            string text = FormatText(ocrResult.Text.ToString());
+            //保存到txt
+            if (this.checkBox1.Checked)
+            {
+                if (!string.IsNullOrEmpty(NowBookName))
+                {
+                    Directory.CreateDirectory("saves");
+                    var s = Path.Combine("saves", NowBookName + ".txt");
+                    File.AppendAllText(s, text);
                 }
 
-                return text;
-                //File.WriteAllText("output.txt", text);
             }
            
+            return ocrResult.Text;
         }
         private Image Base64ToImage(string base64String)
         {
