@@ -301,7 +301,6 @@ namespace MiniWeread
             this.checkBox1.TabIndex = 18;
             this.checkBox1.Text = "读取保存";
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.Visible = false;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label6
