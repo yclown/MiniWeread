@@ -56,6 +56,8 @@ namespace MiniWeread
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericY)).BeginInit();
@@ -69,7 +71,7 @@ namespace MiniWeread
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(920, 12);
+            this.button1.Location = new System.Drawing.Point(186, 168);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -254,7 +256,7 @@ namespace MiniWeread
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.numericWidth);
             this.panel1.Controls.Add(this.numericHeight);
-            this.panel1.Location = new System.Drawing.Point(734, 375);
+            this.panel1.Location = new System.Drawing.Point(962, 342);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(273, 152);
             this.panel1.TabIndex = 16;
@@ -323,13 +325,36 @@ namespace MiniWeread
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.button5);
+            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.checkBox1);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(734, 41);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Location = new System.Drawing.Point(734, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(273, 100);
+            this.panel2.Size = new System.Drawing.Size(273, 206);
             this.panel2.TabIndex = 21;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 91);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(185, 24);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "进入阅读界面后，\r\n点击下方开始阅读既可小窗口阅读";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(14, 168);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 23;
+            this.button5.Text = "使用说明";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
             // MainForm
             // 
@@ -341,7 +366,6 @@ namespace MiniWeread
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn);
             this.Controls.Add(this.webView21);
-            this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "微信阅读摸鱼助手";
@@ -388,6 +412,8 @@ namespace MiniWeread
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ToolStripMenuItem 主界面ToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button5;
     }
 }
 

@@ -387,7 +387,17 @@ namespace MiniWeread
         {
             this.Opacity = 0;
         }
-         
-       
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            HelpForm help = new HelpForm();
+            help.Show();
+
+        }
     }
 }
