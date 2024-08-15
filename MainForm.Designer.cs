@@ -56,8 +56,8 @@ namespace MiniWeread
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericY)).BeginInit();
@@ -336,16 +336,6 @@ namespace MiniWeread
             this.panel2.Size = new System.Drawing.Size(273, 206);
             this.panel2.TabIndex = 21;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 91);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(185, 24);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "进入阅读界面后，\r\n点击下方开始阅读既可小窗口阅读";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(14, 168);
@@ -355,6 +345,16 @@ namespace MiniWeread
             this.button5.Text = "使用说明";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 91);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(185, 24);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "进入阅读界面后，\r\n点击下方开始阅读既可小窗口阅读";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // MainForm
             // 

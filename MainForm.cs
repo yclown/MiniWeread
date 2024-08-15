@@ -243,9 +243,9 @@ namespace MiniWeread
 
         private void read_Click(object sender, EventArgs e)
         {
-            this.Opacity = 0;
-            this.TopMost = true;
-            //this.Hide();
+            //this.Opacity = 0;
+            //this.TopMost = true;
+            this.Hide();
             notifyIcon1.Visible = true;
             readForm.Show();
             readForm.LoadWindowPositionAndSize();
@@ -256,16 +256,32 @@ namespace MiniWeread
         #region  页面操作 
         public async Task NextPage()
         {
+            string script = @"(function fireKeyEvent(key_code) {
+    const ke = new KeyboardEvent('keydown', {
+        bubbles: true, cancelable: true, keyCode: key_code
+    });
+    document.body.dispatchEvent(ke);
+}
+)(39)";
+            //"document.getElementsByClassName('renderTarget_pager_button_right')[0].click()"
             await this.webView21.
-               ExecuteScriptAsync("document.getElementsByClassName('renderTarget_pager_button_right')[0].click()")
+               ExecuteScriptAsync(script)
                 ;
             Thread.Sleep(500);
             await GetScreenshotTextAsync();
         }
         public async Task PrevPage()
         {
+            string script = @"(function fireKeyEvent(key_code) {
+    const ke = new KeyboardEvent('keydown', {
+        bubbles: true, cancelable: true, keyCode: key_code
+    });
+    document.body.dispatchEvent(ke);
+}
+)(37)";
+            //"document.getElementsByClassName('renderTarget_pager_button')[0].click()"
             await this.webView21
-                .ExecuteScriptAsync("document.getElementsByClassName('renderTarget_pager_button')[0].click()");
+                .ExecuteScriptAsync(script);
             Thread.Sleep(500);
             await GetScreenshotTextAsync();
         }
@@ -399,5 +415,7 @@ namespace MiniWeread
             help.Show();
 
         }
+
+     
     }
 }
