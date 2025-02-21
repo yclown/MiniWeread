@@ -256,7 +256,7 @@ namespace MiniWeread
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.numericWidth);
             this.panel1.Controls.Add(this.numericHeight);
-            this.panel1.Location = new System.Drawing.Point(962, 342);
+            this.panel1.Location = new System.Drawing.Point(734, 312);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(273, 152);
             this.panel1.TabIndex = 16;
