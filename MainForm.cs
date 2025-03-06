@@ -19,12 +19,13 @@ namespace MiniWeread
     {
         public string NowBookName;
         public Action<string> TaskCompletedCallback;
-
+        OcrScanner scanner ;
         public ReadForm readForm;
         public MainForm()
         {
             InitializeComponent();
             NowBookName = "";
+            scanner = new OcrScanner();
         }
 
         #region 窗口
@@ -90,19 +91,21 @@ namespace MiniWeread
         private async void button1_Click(object sender, EventArgs e)
         {
 
-            //string data_str = await GetScreenshotBase64Async();
-            //byte[] imageBytes = Convert.FromBase64String(data_str);
-            //using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
-            //{
-            //    OcrScanner scanner = new OcrScanner();
-            //    scanner.Scan(ms, OCRImageFormat.Png);
-            //    string text = FormatText( scanner.Text.ToString());
-            //    //MessageBox.Show(text, "当前文本");
-            //    Console.WriteLine(text);
-            //    //File.WriteAllText("output.txt", text);
-            //}
-            var text= GetScreenshotTextDebugAsync().Result;
-            TaskCompletedCallback?.Invoke(text);
+            string data_str = await GetScreenshotBase64Async();
+            byte[] imageBytes = Convert.FromBase64String(data_str);
+            using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
+            {
+               
+                scanner.Scan(ms, OCRImageFormat.Png);
+                string text = FormatText(scanner.Text.ToString());
+                MessageBox.Show(text, "当前文本");
+                //scanner.Dispose();
+                //Console.WriteLine(text);
+                //File.WriteAllText("output.txt", text);
+                //TaskCompletedCallback?.Invoke(text);
+            }
+            //var text= GetScreenshotTextDebugAsync().Result;
+            
         }
 
         private string FormatText(string text)
@@ -132,7 +135,7 @@ namespace MiniWeread
             byte[] imageBytes = Convert.FromBase64String(data_str);
             using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
             {
-                OcrScanner scanner = new OcrScanner();
+                
                 scanner.Scan(ms, OCRImageFormat.Png);
                 string text = FormatText(scanner.Text.ToString());
                 //保存到txt
@@ -146,7 +149,7 @@ namespace MiniWeread
                     }
 
                 }
-
+                scanner.Dispose();
                 return text;
                 //File.WriteAllText("output.txt", text);
             }
@@ -200,7 +203,7 @@ namespace MiniWeread
             string htmlContent = await webView21.
                        CoreWebView2
                        .ExecuteScriptAsync(@"document.getElementsByTagName('canvas')[0].toDataURL()");
-            string data_str = htmlContent.Replace("\"", "");//.Replace("data:image/png;base64,", "");
+            string data_str = htmlContent.Replace("\"", "").Replace("data:image/png;base64,", "");
 
             return data_str;
         }
